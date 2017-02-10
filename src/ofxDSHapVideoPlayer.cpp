@@ -1244,8 +1244,8 @@ bool ofxDSHapVideoPlayer::load(string path) {
      }
     GLenum err = glGetError();
 
-    if (err != GL_NO_ERROR){
-
+    if (err != GL_NO_ERROR && err != GL_INVALID_ENUM){
+		
         printf("error %s\n", gluErrorString(err));
     }
 
@@ -1415,8 +1415,8 @@ void ofxDSHapVideoPlayer::writeToTexture(ofTexture &texture) {
 
     GLenum err = glGetError();
 
-    if (err != GL_NO_ERROR){
-
+    if (err != GL_NO_ERROR && err != GL_INVALID_ENUM){
+		
         printf("error %s\n", gluErrorString(err));
     }
 
