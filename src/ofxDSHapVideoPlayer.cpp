@@ -1243,12 +1243,12 @@ bool ofxDSHapVideoPlayer::load(string path) {
 		 }
      }
     GLenum err = glGetError();
-
+#ifdef NDEBUG
     if (err != GL_NO_ERROR && err != GL_INVALID_ENUM){
 		
         printf("error %s\n", gluErrorString(err));
     }
-
+#endif
 	 if (!bShaderInitialized){
 
          string ofxHapPlayerVertexShader;
@@ -1414,12 +1414,12 @@ void ofxDSHapVideoPlayer::writeToTexture(ofTexture &texture) {
     glCompressedTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, texData.glInternalFormat, dataLength, pix.getPixels());
 
     GLenum err = glGetError();
-
+#ifdef NDEBUG
     if (err != GL_NO_ERROR && err != GL_INVALID_ENUM){
 		
         printf("error %s\n", gluErrorString(err));
     }
-
+#endif
     if (!ofIsGLProgrammableRenderer())
     {
         glPopClientAttrib();
