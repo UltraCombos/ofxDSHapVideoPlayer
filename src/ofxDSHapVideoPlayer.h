@@ -17,55 +17,55 @@ class ofxDSHapVideoPlayer : public ofBaseVideoPlayer {
 		ofxDSHapVideoPlayer();
 		~ofxDSHapVideoPlayer();
 
-		bool load(string path);
-		void update();
+		bool load(string path) override;
+		void update() override;
 		void waitUpdate(long milliseconds);
 		void writeToTexture(ofTexture& texture);
 		void draw(int x, int y, int w, int h);
 		void draw(int x, int y) { draw(x, y, getWidth(), getHeight()); }
 
-		 void				close();
+		 void				close() override;
 	
-		 void				play();
+		 void				play() override;
 		 void				pause();
-		 void				stop();		
+		 void				stop() override;
 	
-		 bool 				isFrameNew() const ;
-		 ofPixels &		 	getPixels(); // @NOTE: return uncompressed pixels
-		 const ofPixels &    getPixels() const;
+		 bool 				isFrameNew() const override;
+		 ofPixels &		 	getPixels() override; // @NOTE: return uncompressed pixels
+		 const ofPixels &    getPixels() const override;
 	     //unsigned char *	getPixels();
 	
-		 float 				getWidth() const;
-		 float 				getHeight() const;
+		 float 				getWidth() const override;
+		 float 				getHeight() const override;
 	
-		 bool				isPaused() const;
-		 bool				isLoaded() const;
-		 bool				isPlaying() const;
+		 bool				isPaused() const override;
+		 bool				isLoaded() const override;
+		 bool				isPlaying() const override;
 	
-		 bool setPixelFormat(ofPixelFormat pixelFormat);
-		 ofPixelFormat 		getPixelFormat() const;
+		 bool setPixelFormat(ofPixelFormat pixelFormat) override;
+		 ofPixelFormat 		getPixelFormat() const override;
          ofShader           getShader();
-         ofTexture *        getTexture();
+         ofTexture *        getTexturePtr() override;
 
-		 float 				getPosition();
-		 float 				getSpeed();
-		 float 				getDuration();
-		 bool				getIsMovieDone();
+		 float 				getPosition() const override;
+		 float 				getSpeed() const override;
+		 float 				getDuration() const override;
+		 bool				getIsMovieDone() const override;
 	
-		 void 				setPaused(bool bPause);
-		 void 				setPosition(float pct);
-		 void 				setVolume(float volume); // 0..1
-		 void 				setLoopState(ofLoopType state);
-		 void   			setSpeed(float speed);
-		 void				setFrame(int frame);  // frame 0 = first frame...
+		 void 				setPaused(bool bPause) override;
+		 void 				setPosition(float pct) override;
+		 void 				setVolume(float volume) override; // 0..1
+		 void 				setLoopState(ofLoopType state) override;
+		 void   			setSpeed(float speed) override;
+		 void				setFrame(int frame) override;  // frame 0 = first frame...
 	
-		 int				getCurrentFrame() const;
-		 int				getTotalFrames() const;
-		 ofLoopType			getLoopState() const;
+		 int				getCurrentFrame() const override;
+		 int				getTotalNumFrames() const override;
+		 ofLoopType			getLoopState() const override;
 	
-		 void				firstFrame();
-		 void				nextFrame();
-		 void				previousFrame();
+		 void				firstFrame() override;
+		 void				nextFrame() override;
+		 void				previousFrame() override;
 
          enum               HapType {
                                 HAP,

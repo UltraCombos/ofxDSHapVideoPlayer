@@ -1360,7 +1360,7 @@ void ofxDSHapVideoPlayer::close(){
 	}
 }
 
-ofTexture * ofxDSHapVideoPlayer::getTexture() {
+ofTexture * ofxDSHapVideoPlayer::getTexturePtr() {
     return &this->tex;
 }
 
@@ -1516,26 +1516,26 @@ bool ofxDSHapVideoPlayer::setPixelFormat(ofPixelFormat pixelFormat){
 	return (pixelFormat == OF_PIXELS_RGBA);
 }
 
-ofPixelFormat ofxDSHapVideoPlayer::getPixelFormat() const  {
+ofPixelFormat ofxDSHapVideoPlayer::getPixelFormat() const {
 	return OF_PIXELS_RGBA; 
 }
 		
 //should implement!
-float ofxDSHapVideoPlayer::getPosition(){
+float ofxDSHapVideoPlayer::getPosition() const {
 	if( player && player->isLoaded() ){
 		return player->getPosition();
 	}
 	return 0.0;
 }
 
-float ofxDSHapVideoPlayer::getSpeed(){
+float ofxDSHapVideoPlayer::getSpeed() const {
 	if( player && player->isLoaded() ){
 		return player->getSpeed();
 	}
 	return 0.0; 
 }
 
-float ofxDSHapVideoPlayer::getDuration(){
+float ofxDSHapVideoPlayer::getDuration() const {
 	if( player && player->isLoaded() ){
 		return player->getDurationInSeconds();
 	}
@@ -1543,7 +1543,7 @@ float ofxDSHapVideoPlayer::getDuration(){
 }
 
 
-bool ofxDSHapVideoPlayer::getIsMovieDone(){
+bool ofxDSHapVideoPlayer::getIsMovieDone() const {
 	return ( player && player->isMovieDone() ); 
 }
 	
@@ -1591,7 +1591,7 @@ int	ofxDSHapVideoPlayer::getCurrentFrame() const {
 	return 0; 
 }
 
-int	ofxDSHapVideoPlayer::getTotalFrames() const {
+int	ofxDSHapVideoPlayer::getTotalNumFrames() const {
 	if( player && player->isLoaded() ){
 		return player->getTotalFrames();
 	}
@@ -1610,7 +1610,7 @@ ofLoopType ofxDSHapVideoPlayer::getLoopState() const {
 
 void ofxDSHapVideoPlayer::setFrame(int frame){
 	if( player && player->isLoaded() ){
-		frame = ofClamp(frame, 0, getTotalFrames()); 
+		frame = ofClamp(frame, 0, getTotalNumFrames());
 		return player->setFrame(frame);
 	}
 }  // frame 0 = first frame...
