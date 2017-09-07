@@ -1417,7 +1417,7 @@ void ofxDSHapVideoPlayer::writeToTexture(ofTexture &texture) {
 #ifdef NDEBUG
     if (err != GL_NO_ERROR && err != GL_INVALID_ENUM){
 		
-        printf("error %s\n", gluErrorString(err));
+        //printf("error %s\n", gluErrorString(err));
     }
 #endif
     if (!ofIsGLProgrammableRenderer())
