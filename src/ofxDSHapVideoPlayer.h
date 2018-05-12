@@ -17,6 +17,7 @@ class ofxDSHapVideoPlayer : public ofBaseVideoPlayer {
 		ofxDSHapVideoPlayer();
 		~ofxDSHapVideoPlayer();
 
+		void enableAbsPath(bool yes);
 		bool load(string path) override;
 		void update() override;
 		void waitUpdate(long milliseconds);
@@ -86,6 +87,7 @@ class ofxDSHapVideoPlayer : public ofBaseVideoPlayer {
 		// hap shader (for YCoCg)
 		ofShader shader; 
 		bool bShaderInitialized;
+		bool bEanbleAbsPath;
 
 		ofPixels pix; // copy of compressed pixels
 		ofTexture tex; // texture for pix

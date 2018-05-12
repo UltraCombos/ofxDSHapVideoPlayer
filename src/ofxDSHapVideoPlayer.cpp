@@ -1186,6 +1186,7 @@ class DirectShowHapVideo : public ISampleGrabberCB {
 ofxDSHapVideoPlayer::ofxDSHapVideoPlayer(){
 	player = NULL;
 	bShaderInitialized = false;
+	bEanbleAbsPath = false;
 	width = 0;
 	height = 0;
 }
@@ -1194,9 +1195,15 @@ ofxDSHapVideoPlayer::~ofxDSHapVideoPlayer(){
 	close();
 }
 
+void ofxDSHapVideoPlayer::enableAbsPath(bool yes){
+	bEanbleAbsPath = yes;
+}
+
 bool ofxDSHapVideoPlayer::load(string path) {
 
-	path = ofToDataPath(path); 
+	if (!bEanbleAbsPath){
+		path = ofToDataPath(path);
+	}
 
 	close();
 	player = new DirectShowHapVideo();
