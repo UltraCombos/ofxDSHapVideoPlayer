@@ -18,6 +18,10 @@
 #include "DSUncompressedSampleGrabber.h"
 #include "snappy-c.h"
 
+#ifdef NDEBUG
+#include <gl/glu.h> // For glerror
+#endif
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 // DirectShowVideo - contains a simple directshow video player implementation
