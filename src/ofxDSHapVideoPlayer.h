@@ -24,6 +24,7 @@ class ofxDSHapVideoPlayer : public ofBaseVideoPlayer {
 		void writeToTexture(ofTexture& texture);
 		void draw(int x, int y, int w, int h);
 		void draw(int x, int y) { draw(x, y, getWidth(), getHeight()); }
+		void drawSubsection(float x, float y, float w, float h, float sx, float sy, float _sw, float _sh) const;
 
 		 void				close() override;
 	

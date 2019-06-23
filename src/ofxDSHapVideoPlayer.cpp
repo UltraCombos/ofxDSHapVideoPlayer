@@ -1450,6 +1450,15 @@ void ofxDSHapVideoPlayer::draw(int x, int y, int w, int h){
 	if (textureFormat == HapTextureFormat_YCoCg_DXT5) shader.end();
 }
 
+void ofxDSHapVideoPlayer::drawSubsection(float x, float y, float w, float h, float sx, float sy, float _sw, float _sh) const
+{
+	if (textureFormat == HapTextureFormat_YCoCg_DXT5) shader.begin();
+
+	tex.drawSubsection(x, y, w, h, sx, sy, _sw, _sh);
+
+	if (textureFormat == HapTextureFormat_YCoCg_DXT5) shader.end();
+}
+
 void ofxDSHapVideoPlayer::play(){
 	if( player && player->isLoaded() ){
         if (player->isPaused())
